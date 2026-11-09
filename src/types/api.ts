@@ -29,6 +29,15 @@ export type Page<ItemT> = {
   pages: number;
 };
 
+/**
+ * Lo que `usePaginated` manda a un endpoint de lista. `search` es del lado del
+ * cliente: cada service lo traduce al query param que use su router (en
+ * `/users` es `name`).
+ */
+export type PaginatedQuery = PageParams & {
+  search?: string;
+};
+
 /** Error ya normalizado: lo que las pantallas pueden mostrar tal cual. */
 export type ApiError = {
   message: string;

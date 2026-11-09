@@ -1,3 +1,4 @@
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { useRef, useState } from "react";
 import {
   ActivityIndicator,
@@ -100,7 +101,7 @@ export default function LoginScreen() {
                 <View className="relative justify-center">
                   <TextInput
                     ref={passwordRef}
-                    className={`${inputClass} pr-20`}
+                    className={`${inputClass} pr-14`}
                     value={password}
                     onChangeText={handleChange(setPassword)}
                     placeholder="••••••••"
@@ -123,9 +124,11 @@ export default function LoginScreen() {
                       showPassword ? "Ocultar contrasena" : "Mostrar contrasena"
                     }
                   >
-                    <Text className="text-sm font-medium text-brand dark:text-brand-dark">
-                      {showPassword ? "Ocultar" : "Ver"}
-                    </Text>
+                    <Ionicons
+                      name={showPassword ? "eye-off" : "eye"}
+                      size={22}
+                      color={theme.textSecondary}
+                    />
                   </Pressable>
                 </View>
               </View>

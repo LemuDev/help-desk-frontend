@@ -30,11 +30,13 @@ export default function RootLayout() {
   return (
     <>
       <StatusBar style="auto" />
+      {/* Aqui solo se decide sesion si o no. El `TopBar` y los permisos de cada
+          pantalla viven en el layout del grupo `(app)`. */}
       <Stack screenOptions={{ headerShown: false }}>
         {/* Con el guard en false la ruta deja de existir y el router manda a la
             otra: no hace falta un redirect manual en cada pantalla. */}
         <Stack.Protected guard={isAuthenticated}>
-          <Stack.Screen name="index" />
+          <Stack.Screen name="(app)" />
         </Stack.Protected>
 
         <Stack.Protected guard={!isAuthenticated}>

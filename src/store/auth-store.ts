@@ -3,10 +3,11 @@ import { create } from 'zustand';
 import { registerUnauthorizedHandler, setAuthToken, toApiError } from '@/lib/api';
 import { clearStoredToken, getStoredToken, setStoredToken } from '@/lib/token-storage';
 import { fetchMe, login as loginRequest } from '@/services/auth';
-import type { AuthStatus, LoginPayload, User } from '@/types';
+import type { AuthStatus, CurrentUser, LoginPayload } from '@/types';
 
 type AuthState = {
-  user: User | null;
+  /** El de `/auth/me`: trae los permisos con los que se arman los guards. */
+  user: CurrentUser | null;
   token: string | null;
   status: AuthStatus;
   /** `true` mientras vuela el `POST /auth/login`. */
